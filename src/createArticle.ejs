@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    
+    <div class="wrapper">
+        <%- include('./partials/nav.ejs') %>
+
+        <form action="/create-article" method="post" name="create-article" class="form-container">
+            <h1 class="form-title">Create Article</h1>
+            <label for="content" class="form-label">
+                Article Text:
+                <textarea name="content" id="content" placeholder="Enter your message..." class="form-control"></textarea>
+            </label>
+            <button type="submit" class="form-submit">Create Article</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
