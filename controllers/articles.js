@@ -1,9 +1,9 @@
-import Article from '../models/Article.js'
-import { createPath } from '../helpers/createPath.js'
-import { genFilename } from '../helpers/genFilename.js'
+const Article = require('../models/Article.js')
+const createPath = require('../helpers/createPath.js')
+const genFilename = require('../helpers/genFilename.js')
 
 // Create Article
-export const createArticle = async (req, res) => {
+const createArticle = async (req, res) => {
     try {
         const { content } = req.body
         const newArticle = new Article({ content })
@@ -15,7 +15,7 @@ export const createArticle = async (req, res) => {
 }
 
 // Get All Articles
-export const getAllArticles = async (req, res) => {
+const getAllArticles = async (req, res) => {
     try {
         const title = 'Articles'
         const __FILENAME__CSS__ = genFilename(title)
@@ -28,7 +28,7 @@ export const getAllArticles = async (req, res) => {
 }
 
 // Get Article By Id
-export const getArticleById = async (req, res) => {
+const getArticleById = async (req, res) => {
     try {
         const title = 'Article'
         const __FILENAME__CSS__ = genFilename(title)
@@ -40,7 +40,7 @@ export const getArticleById = async (req, res) => {
 }
 
 // Delete Article By Id
-export const deleteArticleById = async (req, res) => {
+const deleteArticleById = async (req, res) => {
     try {
         await Article.findByIdAndDelete(req.params.id)
             .then(() => res.redirect('/articles'))
@@ -50,7 +50,7 @@ export const deleteArticleById = async (req, res) => {
 }
 
 // Update Article By Id
-export const updateArticleById = async (req, res) => {
+const updateArticleById = async (req, res) => {
     try {
         const { content } = req.body
         await Article.findByIdAndUpdate(req.params.id, { content }, { new: true })
@@ -61,7 +61,7 @@ export const updateArticleById = async (req, res) => {
 }
 
 // Get Create Article
-export const getCreateArticle = async (req, res) => {
+const getCreateArticle = async (req, res) => {
     try {
         const title = 'Create Article'
         const __FILENAME__CSS__ = genFilename(title)
@@ -72,7 +72,7 @@ export const getCreateArticle = async (req, res) => {
 }
 
 // Get Update Article
-export const getUpdateArticle = async (req, res) => {
+const getUpdateArticle = async (req, res) => {
     try {
         const title = 'Edit Article'
         const __FILENAME__CSS__ = genFilename(title)
@@ -82,3 +82,5 @@ export const getUpdateArticle = async (req, res) => {
         
     }
 }
+
+module.exports = { createArticle, getAllArticles, getArticleById, deleteArticleById, updateArticleById, getCreateArticle, getUpdateArticle }

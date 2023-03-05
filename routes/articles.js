@@ -1,5 +1,5 @@
-import { Router } from 'express'
-import { createArticle, getAllArticles, getArticleById, deleteArticleById, updateArticleById, getCreateArticle, getUpdateArticle } from '../controllers/articles.js'
+const { Router } = require('express')
+const { createArticle, getAllArticles, getArticleById, deleteArticleById, updateArticleById, getCreateArticle, getUpdateArticle } = require('../controllers/articles.js')
 const router = new Router()
 
 // Create Article
@@ -30,4 +30,4 @@ router.get('/create-article', getCreateArticle)
 // http://localhost:3000/create-article
 router.get('/edit/:id', getUpdateArticle)
 
-export default router
+module.exports = router

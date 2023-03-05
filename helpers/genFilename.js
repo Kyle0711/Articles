@@ -1,4 +1,4 @@
-export const genFilename = (title) => {
+const genFilename = (title) => {
     let filename = ''
     if (title.split(' ').length === 1) {
         filename = title.toLowerCase()
@@ -8,3 +8,5 @@ export const genFilename = (title) => {
     }
     return filename + '.css'
 }
+
+module.exports = genFilename

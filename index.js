@@ -1,12 +1,11 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
-import cors from 'cors'
+const express = require('express')
+const mongoose = require('mongoose')
+require('dotenv').config()
+const cors = require('cors')
 
-import articleRoute from './routes/articles.js'
+const articleRoute = require('./routes/articles.js')
 
 const app = express()
-dotenv.config()
 
 // Include EJS
 app.set('view engine', 'ejs')
